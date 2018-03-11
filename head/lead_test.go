@@ -21,11 +21,11 @@ func TestWriteLeadVsGnuFile(t *testing.T) {
 
 	n, err := l.WriteTo(f)
 	assert.NoError(t, err)
-	assert.Equal(t, int64(95), n)
+	assert.Equal(t, int64(96), n)
 
 	info, err := f.Stat()
 	assert.NoError(t, err)
-	assert.Equal(t, int64(95), info.Size())
+	assert.Equal(t, int64(96), info.Size())
 
 	c := exec.Command("file", f.Name())
 	stdOutCapture := bytes.NewBuffer(nil)

@@ -162,7 +162,7 @@ type pkg struct {
 
 func (p pkg) WriteTo(w io.Writer) (int64, error) {
 	nameVersionRelease := []byte(p.name + "-" + p.version + "-" + p.release)
-	numZeroesToPad := 65 - len(nameVersionRelease)
+	numZeroesToPad := 66 - len(nameVersionRelease)
 	if numZeroesToPad < 0 {
 		return 0, fmt.Errorf("unable to write name-version-release for '%s', it may not exceed 65 bytes", nameVersionRelease)
 	}

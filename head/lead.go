@@ -229,9 +229,7 @@ const (
 )
 
 func (s sigtype) WriteTo(w io.Writer) (int64, error) {
-	var h, l = uint8(s >> 8), uint8(s &
-		0xff)
-	n, err := w.Write([]byte{h, l})
+	n, err := w.Write(uint16ToBytes(uint16(s)))
 	if err != nil {
 		return int64(n), fmt.Errorf("cannot write signature type: %v", err)
 	}
